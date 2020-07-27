@@ -1,0 +1,20 @@
+{
+  "python.pythonPath": "/Users/namtrikdev/.virtualenvs/django-testapp-x6V5NFV3/bin/python",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintArgs": [
+    "--load-plugins=pylint_django",
+    "--indent-string='  '",
+    "--max-line-length=102",
+    "--disable=bad-continuation",
+    "--disable=modelform-uses-exclude"
+  ],
+  "files.exclude": {
+    ".vscode": true,
+    ".gitattributes": true,
+    ".gitignore": true,
+    "**/__pycache__": true,
+    "*.lock": true,
+    "**/__init__.py": true
+  }
+}
