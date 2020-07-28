@@ -30,6 +30,9 @@ $ pipenv run python manage.py loaddata populate.json
 $ pipenv run python manage.py createsuperuser
 ```
 
+El archivo `populate.json` incluye diferentes usuarios cuya contraseña es su mismo nombre de uuario,
+y un super usuario con credenciales `root:root`.
+
 ## Despliegue
 
 Puede desplegar este proyecto en un ambiente productivo para ejecutar sus pruebas en un entorno lo 

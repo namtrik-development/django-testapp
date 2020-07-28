@@ -18,4 +18,14 @@ SECRET_KEY = '7j6&2z2v5pl7om8z9jta+pcad(33m)*b7-6yj=*a68cm*4qq%8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+  }
+}
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

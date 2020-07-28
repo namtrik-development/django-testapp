@@ -1,0 +1,1250 @@
+[
+{
+  "model": "polls.choice",
+  "pk": 1,
+  "fields": {
+    "poll": 1,
+    "choice_text": "Geniales",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 2,
+  "fields": {
+    "poll": 1,
+    "choice_text": "No me gustan",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 3,
+  "fields": {
+    "poll": 1,
+    "choice_text": "Se ven bien",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 4,
+  "fields": {
+    "poll": 2,
+    "choice_text": "Nike",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 5,
+  "fields": {
+    "poll": 2,
+    "choice_text": "Adidas",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "poll": 2,
+    "choice_text": "Puma",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "poll": 3,
+    "choice_text": "Salud",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 8,
+  "fields": {
+    "poll": 3,
+    "choice_text": "Trabajo",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 9,
+  "fields": {
+    "poll": 3,
+    "choice_text": "Dinero",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 10,
+  "fields": {
+    "poll": 4,
+    "choice_text": "Pintura",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 11,
+  "fields": {
+    "poll": 4,
+    "choice_text": "M\u00fasica",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 12,
+  "fields": {
+    "poll": 4,
+    "choice_text": "Escritura",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "poll": 4,
+    "choice_text": "Escultura",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "poll": 5,
+    "choice_text": "Dormir",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "poll": 5,
+    "choice_text": "Ver al horizonte",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "poll": 5,
+    "choice_text": "Ver el suelo",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 17,
+  "fields": {
+    "poll": 6,
+    "choice_text": "Brujer\u00eda",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 18,
+  "fields": {
+    "poll": 6,
+    "choice_text": "Fantasmas",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 19,
+  "fields": {
+    "poll": 6,
+    "choice_text": "Pesadillas",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 20,
+  "fields": {
+    "poll": 7,
+    "choice_text": "Tomar un caf\u00e9",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 21,
+  "fields": {
+    "poll": 7,
+    "choice_text": "Salir a caminar",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 22,
+  "fields": {
+    "poll": 7,
+    "choice_text": "Ver una pel\u00edcula",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 23,
+  "fields": {
+    "poll": 8,
+    "choice_text": "Frijoles",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 24,
+  "fields": {
+    "poll": 8,
+    "choice_text": "Cebolla",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 25,
+  "fields": {
+    "poll": 8,
+    "choice_text": "Aguacate",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 26,
+  "fields": {
+    "poll": 9,
+    "choice_text": "Si",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 27,
+  "fields": {
+    "poll": 9,
+    "choice_text": "No",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 28,
+  "fields": {
+    "poll": 10,
+    "choice_text": "Tomar caf\u00e9",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 29,
+  "fields": {
+    "poll": 10,
+    "choice_text": "Dormir",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 30,
+  "fields": {
+    "poll": 10,
+    "choice_text": "Trabajar",
+    "votes": 0
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add opci\u00f3n",
+    "content_type": 7,
+    "codename": "add_choice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change opci\u00f3n",
+    "content_type": 7,
+    "codename": "change_choice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete opci\u00f3n",
+    "content_type": 7,
+    "codename": "delete_choice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view opci\u00f3n",
+    "content_type": 7,
+    "codename": "view_choice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add encuesta",
+    "content_type": 8,
+    "codename": "add_poll"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change encuesta",
+    "content_type": 8,
+    "codename": "change_poll"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete encuesta",
+    "content_type": 8,
+    "codename": "delete_poll"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view encuesta",
+    "content_type": 8,
+    "codename": "view_poll"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Encuestadores",
+    "permissions": [
+      25,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Votante",
+    "permissions": [
+      26
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Administrador",
+    "permissions": [
+      1,
+      2,
+      3,
+      4,
+      13,
+      14,
+      15,
+      16,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$0X5Qn8DXpnl4$enH8+Q0X51DNOgQpSIEpu15Tdwb7GrIxp/NcxJl7ic4=",
+    "last_login": "2020-07-27T19:29:39.925Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "root@localtest.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-27T19:28:08.699Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$VII184BNT2f6$lNNZ5mSwLxdbinweuDzuChpjDHPJccu1rTcC22BmAhg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rlamarche",
+    "first_name": "Robert",
+    "last_name": "Lamarche",
+    "email": "rlamarche@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:45.666Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$IHHQWQxFY8k4$fSt/AUXVrWOQJcPIbuUi39qA5QMxuQzORtC/gKYPVe4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lscott",
+    "first_name": "Lawrence",
+    "last_name": "Scott",
+    "email": "lscott@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:45.825Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$Pno5DDJnESy8$g/YEC3R61NwMKmjHi/EvG1HdBzZKX8p+Ugj6+JW93vI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "aheaden",
+    "first_name": "Amanda",
+    "last_name": "Headen",
+    "email": "aheaden@localtest.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:45.920Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$9UhhJ0CHXNgR$TGGEX8hsrK2FzJf9s3KLn95n11zIKy5wnVAIC84PS4M=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jredman",
+    "first_name": "Jack",
+    "last_name": "Redman",
+    "email": "jredman@localtest.com",
+    "is_staff": false,
+    "is_active": false,
+    "date_joined": "2020-07-27T21:05:46.011Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$rNqiMM9gnk3F$ZGPqAfxVeJOXWGpk2k99HT8Z6vXs707VYBJ9dKwj+RA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dcollins",
+    "first_name": "Dana",
+    "last_name": "Collins",
+    "email": "dcollins@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.105Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$LkWip8TrK8lA$nDcPsCgaKEAOYk1Ahwx2CRM6ITMOXouQ5CeJpa5hDW8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "cthompson",
+    "first_name": "Christopher",
+    "last_name": "Thompson",
+    "email": "cthompson@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.202Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$A3neLsrgo1f0$lcz1I1FBsksPj253+uIcK/Hl5O+Vk+JTmPiafrL3diQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "esweeney",
+    "first_name": "Elizabeth",
+    "last_name": "Sweeney",
+    "email": "esweeney@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.299Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$KJbnOkvs3UEJ$7SHIOjNXGyqhlaDpQG9q39weWDHvmRAvBSF0e907ANw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bgabler",
+    "first_name": "Bryan",
+    "last_name": "Gabler",
+    "email": "bgabler@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.393Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$5CDCBJ1DhBbJ$61xaSNkg6mesJHlgLbg1wdyptiRc/EdYD87zZIiNvb0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "hking",
+    "first_name": "Hannah",
+    "last_name": "King",
+    "email": "hking@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.485Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$3jmidX9SpQ7W$1BCv6k6e+KtkvjoUqEtOGEUvFJv5G6Ux4o47bVNxcG4=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "ckwak",
+    "first_name": "Charles",
+    "last_name": "Kwak",
+    "email": "ckwak@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.579Z",
+    "groups": [
+      1,
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$jW62R8TeX2iz$sVbjIwWia4q22dmfBW3KQLJVIVMRkXxPM3eslO1oPuc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "cousley",
+    "first_name": "Caryn",
+    "last_name": "Ousley",
+    "email": "cousley@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.676Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$csV5xIV07Yc4$q3nDo7+Z4qMfTZxxJNoAdeRz1IMiZXZTesnd6b6idtQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rherrera",
+    "first_name": "Ronald",
+    "last_name": "Herrera",
+    "email": "rherrera@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.771Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$hCcAL6E8qkuH$ARO/1uBvUzK3wr3xobP4T5MuddIkCBf1p18RdIxddqc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "slopez",
+    "first_name": "Scott",
+    "last_name": "Lopez",
+    "email": "slopez@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.865Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$twkcKpw52oqR$doC0balJTKCQOjrnNv5w9sdgIIP754hgOlM0nS72lE8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jortiz",
+    "first_name": "Joyce",
+    "last_name": "Ortiz",
+    "email": "jortiz@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:46.962Z",
+    "groups": [
+      1,
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$bq1fl6aj3YPr$2SNLkH6spp6WyTF9I+49khEN9MxHDAWMkjDD0GdFDOU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jbates",
+    "first_name": "Josue",
+    "last_name": "Bates",
+    "email": "jbates@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:47.057Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$bCvQbFlRclsn$gZgOZiFFYOq1EIZ8forKhG7hywCD1W03FBshdThTTC8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jkenner",
+    "first_name": "Jason",
+    "last_name": "Kenner",
+    "email": "jkenner@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:47.151Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$180000$PnDRWWkpSDui$0dWo9jjSNaiXAgtiE7u4nbfy+urofvDGjCu8RfylfA4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mmorgan",
+    "first_name": "Marian",
+    "last_name": "Morgan",
+    "email": "mmorgan@localtest.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-07-27T21:05:47.243Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 1,
+  "fields": {
+    "question": "\u00bfCu\u00e1l es tu opini\u00f3n sobre los tatuajes?",
+    "pub_date": "2020-07-28T00:08:32Z",
+    "owner": 4
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 2,
+  "fields": {
+    "question": "\u00bfTienes una marca favorita?",
+    "pub_date": "2020-07-24T23:00:00Z",
+    "owner": 11
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 3,
+  "fields": {
+    "question": "\u00bfPor qu\u00e9 te has sentido agradecido recientemente?",
+    "pub_date": "2020-04-09T05:00:00Z",
+    "owner": 12
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 4,
+  "fields": {
+    "question": "Si dedicaras tu vida al arte, \u00bfqu\u00e9 tipo de arte ser\u00eda ese?",
+    "pub_date": "2020-07-28T00:23:04Z",
+    "owner": 7
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 5,
+  "fields": {
+    "question": "\u00bfQu\u00e9 sabes hacer que sea in\u00fatil?",
+    "pub_date": "2020-07-16T17:00:00Z",
+    "owner": 6
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 6,
+  "fields": {
+    "question": "\u00bfQu\u00e9 sabes lo suficiente como para ser una historia peligrosa?",
+    "pub_date": "2020-07-28T00:24:50Z",
+    "owner": 8
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 7,
+  "fields": {
+    "question": "\u00bfCu\u00e1l es la mejor manera que has encontrado para calmarte cuando te estresas?",
+    "pub_date": "2020-08-01T00:25:37Z",
+    "owner": 2
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 8,
+  "fields": {
+    "question": "\u00bfCon qu\u00e9 comida tienes una relaci\u00f3n de amor y odio?",
+    "pub_date": "2020-07-31T00:26:30Z",
+    "owner": 8
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 9,
+  "fields": {
+    "question": "\u00bfAlguna vez has hecho algo vergonzoso con un antiguo enamorado?",
+    "pub_date": "2020-07-28T00:27:16Z",
+    "owner": 3
+  }
+},
+{
+  "model": "polls.poll",
+  "pk": 10,
+  "fields": {
+    "question": "Si est\u00e1 lloviendo afuera, \u00bfqu\u00e9 actividad quieres hacer m\u00e1s?",
+    "pub_date": "2020-08-01T00:28:03Z",
+    "owner": 12
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2020-07-27T20:31:14.995Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Encuestadores",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2020-07-27T20:32:03.712Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Votante",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2020-07-27T20:32:47.931Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Administrador",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2020-07-27T21:52:30.222Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Votante",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2020-07-28T00:09:08.987Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "\u00bfCu\u00e1l es tu opini\u00f3n sobre los tatuajes?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Geniales\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"No me gustan\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Se ven bien\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2020-07-28T00:22:10.612Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "\u00bfTienes una marca favorita?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Nike\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Adidas\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Puma\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2020-07-28T00:22:45.500Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "\u00bfPor qu\u00e9 te has sentido agradecido recientemente?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Salud\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Trabajo\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Dinero\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2020-07-28T00:23:40.156Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Si dedicaras tu vida al arte, \u00bfqu\u00e9 tipo de arte ser\u00eda ese?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Pintura\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"M\\u00fasica\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Escritura\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Escultura\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2020-07-28T00:24:28.867Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "\u00bfQu\u00e9 sabes hacer que sea in\u00fatil?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Dormir\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Ver al horizonte\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Ver el suelo\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2020-07-28T00:25:19.529Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "\u00bfQu\u00e9 sabes lo suficiente como para ser una historia peligrosa?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Brujer\\u00eda\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Fantasmas\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Pesadillas\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2020-07-28T00:26:14.766Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "\u00bfCu\u00e1l es la mejor manera que has encontrado para calmarte cuando te estresas?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Tomar un caf\\u00e9\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Salir a caminar\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Ver una pel\\u00edcula\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2020-07-28T00:26:56.414Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "\u00bfCon qu\u00e9 comida tienes una relaci\u00f3n de amor y odio?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Frijoles\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Cebolla\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Aguacate\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2020-07-28T00:27:24.598Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "\u00bfAlguna vez has hecho algo vergonzoso con un antiguo enamorado?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Si\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"No\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2020-07-28T00:28:18.315Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Si est\u00e1 lloviendo afuera, \u00bfqu\u00e9 actividad quieres hacer m\u00e1s?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Tomar caf\\u00e9\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Dormir\"}}, {\"added\": {\"name\": \"opci\\u00f3n\", \"object\": \"Trabajar\"}}]"
+  }
+}
+]

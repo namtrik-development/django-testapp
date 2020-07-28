@@ -27,6 +27,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'polls'
 ]
 
 MIDDLEWARE = [
@@ -58,17 +59,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'testapp.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-  }
-}
 
 
 # Password validation
@@ -108,3 +98,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+FIXTURE_DIRS = ['testapp/fixtures']
