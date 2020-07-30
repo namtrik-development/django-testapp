@@ -4,14 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-graphene-django = "*"
+django = "~=2.2"
 django-filter = "*"
-django-graphql-jwt = "*"
+awsebcli = "*"
+
+[dev-packages]
 pylint = "*"
 pylint-django = "*"
 
-[dev-packages]
-
 [requires]
-python_version = "3.8"
+python_version = "3.7"
