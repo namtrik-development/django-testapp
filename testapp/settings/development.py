@@ -29,3 +29,7 @@ DATABASES = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ALLOWED_HOSTS = [
+  'django-testapp-env.eba-dvipfyjs.us-east-1.elasticbeanstalk.com'
+]

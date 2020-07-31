@@ -60,20 +60,23 @@ directorio `.ebextensions` agregue un archivo django.config con el siguiente con
 option_settings:
   aws:elasticbeanstalk:container:python:
     WSGIPath: testapp.wsgi:application
+  aws:autoscaling:launchconfiguration
+    InstanceTypes: 't3a.nano'
 ```
 
 El parámetro `WSGIPath` especifica la ubicación de la rutina WSGI que usará AWSEB para iniciar la 
-aplicación. Para más información sobre cómo configurar AWSEB a través de los archivos vea la 
+aplicación. `InstanceTypes` configura los tipos de instancias EC2 que se usarán en el escalamiento 
+automático. Para más información sobre cómo configurar AWSEB a través de los archivos vea la 
 [documentación oficial](https://docs.amazonaws.cn/en_us/elasticbeanstalk/latest/dg/ebextensions.html).
 
 Inicialice el repositorio para ser usado por AWSEB con el siguiente comando:
 
 ```shell
-eb init -p python-3.7 django-testapp
+eb init -p python-3.7 -r us-east-1 django-testapp
 ```
 
-El comando creará una aplicación en AWSEB con el nombre `django-testapp`. AWSEB solicitará las 
-credenciales de AWS, para conseguirlas siga los siguientes pasos:
+El comando creará una aplicación en AWSEB con el nombre `django-testapp` en la región `us-east-1` 
+(N. Virginia). AWSEB solicitará las credenciales de AWS, para conseguirlas siga los siguientes pasos:
 
 1. Inicie sesión en la consola de AWS
 2. En el panel superior, haga clic en su nombre de cuenta y seleccione la opción `Mis credenciales de 
@@ -103,11 +106,39 @@ Ahora, cree un entorno y despliegue la aplicación con el comando
 eb create django-testapp-env
 ```
 
-Esto creará un entorno de carga balanceada en AWSEB con el nombre `django-testapp-env`.
+Esto creará un entorno de carga balanceada en AWSEB con el nombre `django-testapp-env`. Puede crear 
+el entorno de forma interactiva con el comando
 
-### Despliegue
+```shell
+eb create
+```
 
+Cuando el proceso de creación del entorno termine, busque el nombre del dominio en la variable 
+`CNAME` del resultadode la ejecución del siguiente comando
 
+```shell
+eb status 
+  ...
+  CNAME: eb-django-testapp.elasticbeanstalk.com
+  ...
+```
+
+Agrege el dominio dentro de los `ALLOWED_HOSTS` de la configuración de django, luego haga commit de 
+los cambios y vuelva a desplegar el proyecto con el comando
+
+```shell
+eb deploy
+```
+
+## Otros comandos importantes
+
+eb ssh
+eb platform list
+eb terminate
+eb config
+eb use -r us-east-1
+eb printenv
+eb status
 
 ## Otras consideraciones
 
