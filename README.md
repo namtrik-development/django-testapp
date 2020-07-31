@@ -1,16 +1,128 @@
-# Django Testapp
+# Despliegue en AWS Elastic Beanstalk
 
-Una aplicación web básica escrita en Django para ejecutar pruebas de paquetes, despliegue, etc.
+En este test se configura el proyecto para ser desplegado en AWS Elastic Beanstalk (AWSEB) sobre una 
+infraestructura totalmente escalable y auto-gestionada.
 
-No haga pruebas sobre las ramas principales (master y develop), manténgalas lo más limpias posible, 
-si desea implementar una prueba cree una rama nueva, trabaje localmente y si la prueba es de valor 
-sincronicela al repositorio sin integrarla a las ramas principales.
+Con AWSEB maneja automáticamente los detalles de aprovisionamiento de capacidad, 
+equilibrio de carga, el escalado y el monitoreo del estado de las aplicaciones. Para más información 
+sobre AWSEB diríjase a la 
+[Documentación oficial](https://docs.amazonaws.cn/en_us/elasticbeanstalk/latest/dg/Welcome.html).
+
+## Flujo de trabajo
+
+En este proyecto se usará la `interfaz de línea de comandos de AWS Beanstalk (awsebcli)`, una 
+herramienta que le ayuda a desplegar y gestionar las aplicaciones de AWSEB.
+
+`awsebcli` crea una aplicación en el panel de AWSEB, crea una versión de la aplicación en forma de 
+un paquete (por ejemplo, un archivo .war de Java o .zip en Python), lo almacena en AWS S3 para ser 
+usado en el proceso de despliegue de los servidores, carga el paquete en AWSEB, lanza automáticamente 
+un entorno, crea y configura los recursos (instancias de EC2, balanceadores de carga, alertas, etc.) 
+necesarios de AWS necesarios para ejecutar el código fuente. Una vez creado el entorno, puede 
+administrarlo e implementar nuevas versiones de la aplicación.
+
+`awsebcli` se integra con Git, haciendo que se despliegue únicamente el código fuente que haya sido 
+'commited' en el repositorio.
+
+![Flujo de trabajo de AWSEB](.doc/images/awseb_workflow.png "Flujo de trabajo de AWSEB")
 
 ## Prerequisitos
 
 * Python 3.8
 * PIP
 * Pipenv
+
+## Paso a paso
+
+### Configuración
+
+`awsebcli` se distribuye como un [paquete de Python](https://pypi.org/project/awsebcli/) y requiere 
+de un entorno virtual para gestionar las dependencias, puede usar `pipenv` o `virtualenv`; en esta 
+prueba usamor `pipenv`.
+
+Instale `awsebcli` en el entorno virtual con el siguiente comando:
+
+```shell
+pipenv install awsebcli
+
+# compruebe la instalación con
+eb --version
+```
+
+Compruebe que no existen inconsistencias con las dependencias del proyecto; en algunas ocaciones 
+`awsebcli` puede tener problemas con las dependencias de `graphene-django`. `awsebcli` usará el 
+archivo `Pipfile.lock` para resolver las dependencias del proyecto durante el proceso de despliegue.
+
+Ahora, es necesario crear los archivos que serán usados para configurar toda la infraestructura que 
+servirá el proyecto, para ello cree un directorio con el nombre `.ebextensions`. Dentro del 
+directorio `.ebextensions` agregue un archivo django.config con el siguiente contenido:
+
+```config
+option_settings:
+  aws:elasticbeanstalk:container:python:
+    WSGIPath: testapp.wsgi:application
+```
+
+El parámetro `WSGIPath` especifica la ubicación de la rutina WSGI que usará AWSEB para iniciar la 
+aplicación. Para más información sobre cómo configurar AWSEB a través de los archivos vea la 
+[documentación oficial](https://docs.amazonaws.cn/en_us/elasticbeanstalk/latest/dg/ebextensions.html).
+
+Inicialice el repositorio para ser usado por AWSEB con el siguiente comando:
+
+```shell
+eb init -p python-3.7 django-testapp
+```
+
+El comando creará una aplicación en AWSEB con el nombre `django-testapp`. AWSEB solicitará las 
+credenciales de AWS, para conseguirlas siga los siguientes pasos:
+
+1. Inicie sesión en la consola de AWS
+2. En el panel superior, haga clic en su nombre de cuenta y seleccione la opción `Mis credenciales de 
+seguridad`
+![Mis credenciales de seguridad](.doc/images/my_security_credentials.png "Mis credenciales de 
+seguridad")
+3. Seleccione la opción `Claves de acceso (ID de clave de acceso y clave de acceso secreta)` y luego 
+haga clic en el botón `Crear una clave de acceso`
+![Claves de acceso](.doc/images/access_keys.png "Claves de acceso")
+4. Se creará la clave de acceso y la clave de acceso secreta y le permitirá copiarlas desde el enlace 
+`Mostrar la clave de acceso` o descargarlas en un archivo `.csv`
+![Credenciales](.doc/images/credentials.png "Credenciales")
+
+Luego de crear la aplicación de AWSEB, ejecute el siguiente comando para configurar el par de claves 
+que podrá usar para conectarse a través de SSH a la instancia creada:
+
+```shell
+eb init
+```
+
+Seleccione el par de llaves si ya tiene alguna creada, o siga los pasos para crear una. El par de 
+llaves se creará en el directorio `.ssh`.
+
+Ahora, cree un entorno y despliegue la aplicación con el comando
+
+```shell
+eb create django-testapp-env
+```
+
+Esto creará un entorno de carga balanceada en AWSEB con el nombre `django-testapp-env`.
+
+### Despliegue
+
+
+
+## Otras consideraciones
+
+* Recuerde crear una rama de release/stagging en la que configure los parámetros del proyecto antes 
+de pasar a producción (por ejemplo, credenciales de servicio de correo electrónico, base de datos, 
+etc.)
+
+* La plataforma python-3.8 no estaba disponible al momento de la creación de esta prueba, por lo que 
+si tiene problemas con la plataforma puede listar las plataformas disponibles con el siguiente comando
+
+```shell
+eb platform list
+```
+
+###### TODO: cuidado con las regiones. Cómo configurar la región?
 
 ## Instalación
 
@@ -37,8 +149,8 @@ y un super usuario con credenciales `root:root`.
 
 Puede desplegar este proyecto en un ambiente productivo para ejecutar sus pruebas en un entorno lo 
 más real posible, para ello realice las configuraciones que requieren atención en el archivo 
-[`testapp/settings/production.py`](testapp/settings/production.py), luego cambie el nombre del achivo de configuración usado por Django 
-en [`manage.py`](manage.py#L8) así:
+[`testapp/settings/production.py`](testapp/settings/production.py), luego cambie el nombre del achivo 
+de configuración usado por Django en [`manage.py`](manage.py#L8) así:
 
 ```python
 # de
