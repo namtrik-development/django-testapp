@@ -130,6 +130,12 @@ los cambios y vuelva a desplegar el proyecto con el comando
 eb deploy
 ```
 
+Una vez desplegados los cambios podrá acceder a la aplicación desplegada usando el comando
+
+```shell
+eb open
+```
+
 ## Otros comandos importantes
 
 eb ssh
