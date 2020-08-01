@@ -4,7 +4,8 @@ Una aplicación web básica escrita en Django para ejecutar pruebas de paquetes,
 
 No haga pruebas sobre las ramas principales (master y develop), manténgalas lo más limpias posible, 
 si desea implementar una prueba cree una rama nueva, trabaje localmente y si la prueba es de valor 
-sincronicela al repositorio sin integrarla a las ramas principales.
+sincronicela al repositorio sin integrarla a las ramas principales, no olvide documentar el proceso y
+los resultados de la prueba para que sea fácilmente reproducible por otros compañeros.
 
 ## Prerequisitos
 
