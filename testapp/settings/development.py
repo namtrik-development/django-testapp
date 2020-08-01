@@ -33,7 +33,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # NOTE: las siguientes variables se configuraron para probar el despliegue mínimo del proyecto, es 
 # decir, BD SQLite, datos precargados en la BD, etc.
 ALLOWED_HOSTS = [
-  'django-testapp-env.eba-dvipfyjs.us-east-1.elasticbeanstalk.com'
+  'django-testapp-env.eba-zhzj2z22.us-east-1.elasticbeanstalk.com'
 ]
 
 STATIC_URL = '/static/'
