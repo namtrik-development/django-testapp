@@ -33,8 +33,6 @@ administrarlo e implementar nuevas versiones de la aplicación.
 
 ## Paso a paso
 
-### Configuración
-
 `awsebcli` se distribuye como un [paquete de Python](https://pypi.org/project/awsebcli/) y requiere 
 de un entorno virtual para gestionar las dependencias, puede usar `pipenv` o `virtualenv`; en esta 
 prueba usamor `pipenv`.
@@ -56,13 +54,34 @@ Ahora, es necesario crear los archivos que serán usados para configurar toda la
 servirá el proyecto, para ello cree un directorio con el nombre `.ebextensions`. Dentro del 
 directorio `.ebextensions` agregue un archivo django.config con el siguiente contenido:
 
-```config
+```yaml
 option_settings:
   aws:elasticbeanstalk:container:python:
     WSGIPath: testapp.wsgi:application
-  aws:autoscaling:launchconfiguration
+  aws:elasticbeanstalk:environment:proxy:staticfiles:
+    /static: static
+  aws:ec2:instances:
     InstanceTypes: 't3a.nano'
 ```
+
+Cree otro archivo llamado `.ebextensions/commands.config` con el siguiente contenido:
+
+```yaml
+container_commands:
+  collectstatic:
+    command: "source $(find /var/app/venv/ -name activate) && python manage.py collectstatic --noinput"
+  migrate: 
+    command: "source $(find /var/app/venv/ -name activate) && python manage.py migrate --noinput"
+    leader_only: true
+```
+
+El parámetro `container_commands` agrupa los comandos que se ejecutarán en el momento del despliegue 
+del proyecto en AWSEB; en esta prueba ejecutamos el comando que recolecta los archivos estáticos y el 
+comando que ejecuta las migraciones de base de datos. Asegúrese que el nombre de la carpeta de 
+estáticos (`STATIC_ROOT`) corresponde con el valor del parámetro 
+`aws:elasticbeanstalk:environment:proxy:staticfiles` en el archivo `django.config`. El parámetro 
+`leader_only` hace que el comando se ejecute unicamente en el servidor raíz y no en los servidores de 
+escalamiento.
 
 El parámetro `WSGIPath` especifica la ubicación de la rutina WSGI que usará AWSEB para iniciar la 
 aplicación. `InstanceTypes` configura los tipos de instancias EC2 que se usarán en el escalamiento 
@@ -107,11 +126,7 @@ eb create django-testapp-env
 ```
 
 Esto creará un entorno de carga balanceada en AWSEB con el nombre `django-testapp-env`. Puede crear 
-el entorno de forma interactiva con el comando
-
-```shell
-eb create
-```
+el entorno de forma interactiva con el comando ```eb create```.
 
 Cuando el proceso de creación del entorno termine, busque el nombre del dominio en la variable 
 `CNAME` del resultadode la ejecución del siguiente comando
@@ -138,13 +153,20 @@ eb open
 
 ## Otros comandos importantes
 
-eb ssh
-eb platform list
-eb terminate
-eb config
-eb use -r us-east-1
-eb printenv
-eb status
+`eb ssh` conecta mediante SSH a la instancia EC2.
+
+`eb platform list` muestra la lista de plataformas disponibles en AWSEB.
+
+`eb terminate` elimina el entorno de ejecución creado en AWSEB. Use este comando para eliminar el 
+proyecto de AWSEB.
+
+`eb config` muestra su configuración actual de AWSEB.
+
+`eb use -r us-east-1` cambia la región que usará AWSEB.
+
+`eb printenv` muestra todas las variables de entorno configuradas en los archivos .config
+
+`eb status` muestra el estado actual del entorno.
 
 ## Otras consideraciones
 
@@ -159,7 +181,25 @@ si tiene problemas con la plataforma puede listar las plataformas disponibles co
 eb platform list
 ```
 
-###### TODO: cuidado con las regiones. Cómo configurar la región?
+* El código fuente de la aplicación se almacena en la ruta: `/var/app/`
+
+* Si ocurrió algún error durante el despliegue de la aplicación o de una de sus versiones, el código 
+fuente estará almacenado en el directorio `/var/app/staging`
+
+* Si el despliegue no tuvo errores, el código fuente estará alojado en el directorio 
+`/var/app/current`
+
+## Eliminar aplicación de AWSEB
+
+Primero deberá terminar el entorno de ejecución con el siguiente comando:
+
+```shell
+eb terminate
+```
+
+Luego puede eliminar el directorio `.elasticbeanstalk`, por último, elimine las versiones de la 
+aplicación, no olvide checkear la opción para eliminar los archivos almacenados en S3, luego elimine 
+la aplicación.
 
 ## Instalación
 
