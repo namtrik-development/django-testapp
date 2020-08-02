@@ -168,6 +168,8 @@ proyecto de AWSEB.
 
 `eb status` muestra el estado actual del entorno.
 
+`eb logs` muestra los logs del proceso de despliegue.
+
 ## Otras consideraciones
 
 * Recuerde crear una rama de release/stagging en la que configure los parámetros del proyecto antes 
@@ -189,6 +191,9 @@ fuente estará almacenado en el directorio `/var/app/staging`
 * Si el despliegue no tuvo errores, el código fuente estará alojado en el directorio 
 `/var/app/current`
 
+* Los logs solo estarán disponibles si por lo menos una versión de la aplicación fue desplegada con 
+éxito.
+
 ## Eliminar aplicación de AWSEB
 
 Primero deberá terminar el entorno de ejecución con el siguiente comando:
@@ -206,6 +211,8 @@ la aplicación.
 Aurora Serverless es un tipo de base de datos de AWS RDS con configuración de escalado automático, 
 para mayor información sobre Aurora haga clic 
 [aquí](https://aws.amazon.com/es/rds/aurora/serverless/).
+
+
 
 ## Instalación
 
