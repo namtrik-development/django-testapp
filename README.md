@@ -201,6 +201,12 @@ Luego puede eliminar el directorio `.elasticbeanstalk`, por último, elimine las
 aplicación, no olvide checkear la opción para eliminar los archivos almacenados en S3, luego elimine 
 la aplicación.
 
+## Conectar a una base de datos Aurora Serverless
+
+Aurora Serverless es un tipo de base de datos de AWS RDS con configuración de escalado automático, 
+para mayor información sobre Aurora haga clic 
+[aquí](https://aws.amazon.com/es/rds/aurora/serverless/).
+
 ## Instalación
 
 Ejecute los siguientes comandos en una terminal:
