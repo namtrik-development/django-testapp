@@ -18,7 +18,25 @@ SECRET_KEY = '*h8c4)@8@vd4&j%i8gtegq)kw_xjum^6u(=g@b$nh&syirbc=k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'django-testapp-env.eba-rptr4rhb.us-east-1.elasticbeanstalk.com',
+]
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': os.environ['RDS_DB_NAME'],
+    'USER': os.environ['RDS_USERNAME'],
+    'PASSWORD': os.environ['RDS_PASSWORD'],
+    'HOST': os.environ['RDS_HOSTNAME'],
+    'PORT': os.environ['RDS_PORT'],
+  }
+}
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+# SECURE_HSTS_SECONDS = 3600 # TODO: test this
 
 LOGGING_FILENAME = 'debug.log'
 LOGGING = {

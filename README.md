@@ -236,3 +236,9 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testapp.settings.development')
 # a esto
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testapp.settings.production')
 ```
+
+# TODO
+Base de datos (Aurora serverless) ~ paquetes desde .ebextensions
+Certificado digital
+graphql
+WAF + managed rules (core rule set)
