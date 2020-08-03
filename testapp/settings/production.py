@@ -50,7 +50,7 @@ LOGGING = {
     'file': {
       'level': 'WARNING',
       'class': 'logging.FileHandler',
-      'filename': '/var/logs/testapp.log'
+      'filename': '/var/log/testapp.log'
     },
     'mail_admins': {
       'level': 'ERROR',
