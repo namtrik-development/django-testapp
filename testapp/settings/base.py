@@ -27,7 +27,9 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
-  'polls'
+  'graphene_django',
+  'polls',
+  'apis'
 ]
 
 MIDDLEWARE = [
@@ -38,6 +40,7 @@ MIDDLEWARE = [
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'testapp.urls'
@@ -100,3 +103,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 FIXTURE_DIRS = ['testapp/fixtures']
+
+AUTHENTICATION_BACKENDS = [
+  'graphql_jwt.backends.JSONWebTokenBackend',
+  'django.contrib.auth.backends.ModelBackend',
+]
+
+GRAPHENE = {
+  'MIDDLEWARE': [
+    'graphql_jwt.middleware.JSONWebTokenMiddleware',
+  ],
+}

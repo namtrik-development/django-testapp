@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 django = "~=2.2"
 django-filter = "*"
-awsebcli = "*"
 mysqlclient = "*"
+graphene-django = "*"
+django-graphql-jwt = "*"
 
 [dev-packages]
 pylint = "*"
