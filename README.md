@@ -258,9 +258,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testapp.settings.production')
 ```
 
 # TODO
-Base de datos (Aurora serverless) ~ paquetes desde .ebextensions
 Certificado digital
-graphql
 WAF + managed rules (core rule set)
 Modo mantenimiento (https://stackoverflow.com/a/53816672)
 IPv6
