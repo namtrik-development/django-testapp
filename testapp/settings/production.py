@@ -19,7 +19,7 @@ SECRET_KEY = '*h8c4)@8@vd4&j%i8gtegq)kw_xjum^6u(=g@b$nh&syirbc=k'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-  'django-testapp-env.eba-vngkgeqx.us-east-1.elasticbeanstalk.com'
+  'django-testapp-env.eba-s9rznadh.us-east-1.elasticbeanstalk.com'
 ]
 
 DATABASES = {

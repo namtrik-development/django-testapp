@@ -48,7 +48,9 @@ eb --version
 
 Compruebe que no existen inconsistencias con las dependencias del proyecto; en algunas ocaciones 
 `awsebcli` puede tener problemas con las dependencias de `graphene-django`. `awsebcli` usará el 
-archivo `Pipfile.lock` para resolver las dependencias del proyecto durante el proceso de despliegue.
+archivo `Pipfile.lock` para resolver las dependencias del proyecto durante el proceso de despliegue. 
+Si no fue posible resolver las dependencias, puede instalar `awsebcli` de forma global en el sistema 
+con `pip` y ejecutar el despliegue por fuera del entorno virtual de desarrollo.
 
 Ahora, es necesario crear los archivos que serán usados para configurar toda la infraestructura que 
 servirá el proyecto, para ello cree un directorio con el nombre `.ebextensions`. Dentro del 
@@ -95,19 +97,8 @@ eb init -p python-3.7 -r us-east-1 django-testapp
 ```
 
 El comando creará una aplicación en AWSEB con el nombre `django-testapp` en la región `us-east-1` 
-(N. Virginia). AWSEB solicitará las credenciales de AWS, para conseguirlas siga los siguientes pasos:
-
-1. Inicie sesión en la consola de AWS
-2. En el panel superior, haga clic en su nombre de cuenta y seleccione la opción `Mis credenciales de 
-seguridad`
-![Mis credenciales de seguridad](.doc/images/my_security_credentials.png "Mis credenciales de 
-seguridad")
-3. Seleccione la opción `Claves de acceso (ID de clave de acceso y clave de acceso secreta)` y luego 
-haga clic en el botón `Crear una clave de acceso`
-![Claves de acceso](.doc/images/access_keys.png "Claves de acceso")
-4. Se creará la clave de acceso y la clave de acceso secreta y le permitirá copiarlas desde el enlace 
-`Mostrar la clave de acceso` o descargarlas en un archivo `.csv`
-![Credenciales](.doc/images/credentials.png "Credenciales")
+(N. Virginia). AWSEB solicitará las credenciales de AWS, para conseguirlas siga los pasos de la 
+sección [Obtener credenciales de AWS](#obtener-credenciales-de-aws)
 
 Luego de crear la aplicación de AWSEB, ejecute el siguiente comando para configurar el par de claves 
 que podrá usar para conectarse a través de SSH a la instancia creada:
@@ -212,7 +203,23 @@ Aurora Serverless es un tipo de base de datos de AWS RDS con configuración de e
 para mayor información sobre Aurora haga clic 
 [aquí](https://aws.amazon.com/es/rds/aurora/serverless/).
 
+A la hora de crear la base de datos serverless tenga en cuenta que sólo es soportada la versión 
+`5.6.10a` de MySQL y que la localización debe configurarse como `Regional`.
 
+
+# Obtener credenciales de AWS
+
+1. Inicie sesión en la consola de AWS
+2. En el panel superior, haga clic en su nombre de cuenta y seleccione la opción `Mis credenciales de 
+seguridad`
+![Mis credenciales de seguridad](.doc/images/my_security_credentials.png "Mis credenciales de 
+seguridad")
+3. Seleccione la opción `Claves de acceso (ID de clave de acceso y clave de acceso secreta)` y luego 
+haga clic en el botón `Crear una clave de acceso`
+![Claves de acceso](.doc/images/access_keys.png "Claves de acceso")
+4. Se creará la clave de acceso y la clave de acceso secreta y le permitirá copiarlas desde el enlace 
+`Mostrar la clave de acceso` o descargarlas en un archivo `.csv`
+![Credenciales](.doc/images/credentials.png "Credenciales")
 
 ## Instalación
 
