@@ -16,7 +16,7 @@ from .base import *
 SECRET_KEY = '*h8c4)@8@vd4&j%i8gtegq)kw_xjum^6u(=g@b$nh&syirbc=k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
   'django-testapp-env.eba-s9rznadh.us-east-1.elasticbeanstalk.com'
@@ -28,7 +28,7 @@ DATABASES = {
     'NAME': 'testappdb',
     'USER': 'testappdbroot',
     'PASSWORD': 'testappdbpassword',
-    'HOST': '186.86.49.102',
+    'HOST': 'testapp.cluster-clrhzo2xv4nf.us-east-1.rds.amazonaws.com',
     'PORT': 3306,
   }
 }
