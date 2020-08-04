@@ -88,7 +88,9 @@ escalamiento.
 El parámetro `WSGIPath` especifica la ubicación de la rutina WSGI que usará AWSEB para iniciar la 
 aplicación. `InstanceTypes` configura los tipos de instancias EC2 que se usarán en el escalamiento 
 automático. Para más información sobre cómo configurar AWSEB a través de los archivos vea la 
-[documentación oficial](https://docs.amazonaws.cn/en_us/elasticbeanstalk/latest/dg/ebextensions.html).
+[documentación oficial](https://docs.amazonaws.cn/en_us/elasticbeanstalk/latest/dg/ebextensions.html) 
+, [Opciones generales](https://docs.aws.amazon.com/es_es/elasticbeanstalk/latest/dg/command-options.html).
+
 
 Inicialice el repositorio para ser usado por AWSEB con el siguiente comando:
 
@@ -163,6 +165,9 @@ proyecto de AWSEB.
 
 ## Otras consideraciones
 
+* Si requiere usar una base de datos con su entorno, es muy recomendable crear la base de datos 
+independiente del entorno, por que AWSEB eliminará las bases de datos cuando termine el entorno.
+
 * Recuerde crear una rama de release/stagging en la que configure los parámetros del proyecto antes 
 de pasar a producción (por ejemplo, credenciales de servicio de correo electrónico, base de datos, 
 etc.)
@@ -170,9 +175,9 @@ etc.)
 * La plataforma python-3.8 no estaba disponible al momento de la creación de esta prueba, por lo que 
 si tiene problemas con la plataforma puede listar las plataformas disponibles con el siguiente comando
 
-```shell
-eb platform list
-```
+  ```shell
+  eb platform list
+  ```
 
 * El código fuente de la aplicación se almacena en la ruta: `/var/app/`
 
@@ -182,8 +187,63 @@ fuente estará almacenado en el directorio `/var/app/staging`
 * Si el despliegue no tuvo errores, el código fuente estará alojado en el directorio 
 `/var/app/current`
 
-* Los logs solo estarán disponibles si por lo menos una versión de la aplicación fue desplegada con 
-éxito.
+* Los logs del entorno solo estarán disponibles si por lo menos una versión de la aplicación fue 
+desplegada con éxito.
+
+* La verificación del estado del entorno que realiza el balanceador de carga no fija el nombre del 
+host cuando hace la solicitud HTTP, en su lugar, se conecta directamente a través de la dirección IP 
+privada de la instancia, pero la IP no es puede ser configurada de forma estática en la variable 
+ALLOWED_HOSTS por que cambiaría durante el escalamiento automático. Esto provoca que el entorno 
+muestre el entorno en estado `Grave/Severe`. Para corregir este problema se debe obtener la dirección 
+IP privada de la instancia y establecerla de forma dinámica, para esto puede usar el siguiente 
+snippet:
+
+  ```python
+  import requests
+  try:
+    instance_ip = requests.get('http://instance-data/latest/meta-data/local-ipv4').text
+  except requests.exceptions.ConnectionError:
+    pass
+  else:
+    ALLOWED_HOSTS.append(instance_ip)
+  del requests
+  ```
+
+  El snippet depende de [`requests`](https://requests.readthedocs.io/es/latest/index.html). Puede ver 
+  la implementación en esta prueba en [`testapp/settings/ebutils.py`](testapp/settings/ebutils.py#L8) y 
+  en [`testapp/settings/production.py`](testapp/settings/production.py#L76)
+
+* AWSEB le permite configurar una URL para verificar la 'salud/estado' (health) del entorno. Esta 
+verificación es usado por el balanceador de carga para decidir si las instancias de EC2 están en un 
+estado 'saludable', pero el grupo de auto escalamiento no usa esta verificación; así que si la 
+verificación de estado de una instancia falla, por cualquier razón, el balanceador de carga la 
+marcará con estado de error y la eliminará del balanceador. Sin embargo, el grupo de auto 
+escalamiento sigue considerando a la instancia en un estado 'saludable' por lo que no vuelve a 
+lanzarla. La solución es corregir el grupo de auto escalamiento para que use la revisión de estado 
+del balanceador de carga agregando la siguiente configuración:
+
+  ```yaml
+  Resources:
+    AWSEBAutoScalingGroup:
+      Type: "AWS::AutoScaling::AutoScalingGroup"
+      Properties:
+        HealthCheckType: "ELB"
+        HealthCheckGracePeriod: "600"
+  ```
+
+* Los logs personalizados de Django no funcionan bien con AWSEB. Durante el proceso de despliegue 
+Django crea el archivo de log que definió en su archivo de configuración, pero este archivo se crea 
+bajo permisos de `root`, por lo que Django no podrá escribir sobre este archivo. AWSEB recomienda 
+alojar los archivos de log en `/opt/python/log`, y cambiar los permisos con los siguientes comandos 
+que debe definir en sus archivos de configuración:
+
+  ```yaml
+  commands:
+    change_log_permissions:
+      command: chmod g+s /opt/python/log
+    change_logs_owner:
+      command: chown root:wsgi /opt/python/log
+  ```
 
 ## Eliminar aplicación de AWSEB
 
@@ -206,8 +266,28 @@ para mayor información sobre Aurora haga clic
 A la hora de crear la base de datos serverless tenga en cuenta que sólo es soportada la versión 
 `5.6.10a` de MySQL y que la localización debe configurarse como `Regional`.
 
+Se recomienda crear primero la base de datos desde  la consola de RDS y luego ejecutar el despliegue. 
+Configure RDS para crear un nuevo Security Group, luego en un nuevo archivo `.config` dentro del 
+directorio `.ebextensions` configure el Security Group al que se asociarán las instancias de EC2 que 
+se desplieguen con el siguiente contenido:
 
-# Obtener credenciales de AWS
+```yaml
+option_settings:
+  - namespace: aws:autoscaling:launchconfiguration
+    option_name: SecurityGroups
+    value: testapp-sg
+```
+
+<--TODO--> Test it
+
+Una vez creada la base de datos, agregue al Security Group creado por la base de datos una nueva 
+regla de entrada con el puerto de la base de datos y la fuente el id del Security Group creado por 
+AWSEB para el entorno.
+
+## Configurar dominio y HTTPS
+
+
+## Obtener credenciales de AWS
 
 1. Inicie sesión en la consola de AWS
 2. En el panel superior, haga clic en su nombre de cuenta y seleccione la opción `Mis credenciales de 
@@ -221,45 +301,22 @@ haga clic en el botón `Crear una clave de acceso`
 `Mostrar la clave de acceso` o descargarlas en un archivo `.csv`
 ![Credenciales](.doc/images/credentials.png "Credenciales")
 
-## Instalación
 
-Ejecute los siguientes comandos en una terminal:
 
-```bash
-# instalar dependencias
-$ pipenv install
-
-# crear la base de datos
-$ pipenv run python manage.py migrate
-
-# llena la base de datos con registros dummy
-$ pipenv run python manage.py loaddata populate.json
-
-# crea un usuario administrador
-$ pipenv run python manage.py createsuperuser
-```
-
-El archivo `populate.json` incluye diferentes usuarios cuya contraseña es su mismo nombre de uuario,
-y un super usuario con credenciales `root:root`.
-
-## Despliegue
-
-Puede desplegar este proyecto en un ambiente productivo para ejecutar sus pruebas en un entorno lo 
-más real posible, para ello realice las configuraciones que requieren atención en el archivo 
-[`testapp/settings/production.py`](testapp/settings/production.py), luego cambie el nombre del achivo 
-de configuración usado por Django en [`manage.py`](manage.py#L8) así:
-
-```python
-# de
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testapp.settings.development')
-
-# a esto
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'testapp.settings.production')
-```
 
 # TODO
-Certificado digital
+probar variables de entorno, conección a bd
+https://aws.amazon.com/es/premiumsupport/knowledge-center/elastic-beanstalk-pass-variables/
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html#environments-cfg-softwaresettings-accessing
+
+gzip nginx
+
 WAF + managed rules (core rule set)
-Modo mantenimiento (https://stackoverflow.com/a/53816672)
+Enable memory metrics
 IPv6
+Modo mantenimiento (https://stackoverflow.com/a/53816672)
 private ec2 instances
+despliegues B/G (stagging, prodution)
+https://github.com/ThoughtWorksStudios/eb_deployer/wiki/Elastic-Beanstalk-Tips-and-Tricks#set-inactive_settings-for-saving-cost-on-blue-green-deployment
+
+ww

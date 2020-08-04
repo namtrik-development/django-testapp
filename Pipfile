@@ -9,6 +9,7 @@ django-filter = "*"
 mysqlclient = "*"
 graphene-django = "*"
 django-graphql-jwt = "*"
+requests = "*"
 
 [dev-packages]
 pylint = "*"

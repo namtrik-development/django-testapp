@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 from .base import *
+# from .ebutils import LOG_PATH, get_instance_ip
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*h8c4)@8@vd4&j%i8gtegq)kw_xjum^6u(=g@b$nh&syirbc=k'
@@ -26,19 +27,25 @@ ALLOWED_HOSTS = [
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'testappdb',
-    'USER': 'testappdbroot',
-    'PASSWORD': 'testappdbpassword',
-    'HOST': 'testapp.cluster-clrhzo2xv4nf.us-east-1.rds.amazonaws.com',
-    'PORT': 3306,
+    # 'NAME': 'testappdb',
+    'NAME': os.environ['RDS_DB_NAME'],
+    # 'USER': 'testappdbroot',
+    'USER': os.environ['RDS_USERNAME'],
+    # 'PASSWORD': 'testappdbpassword',
+    'PASSWORD': os.environ['RDS_PASSWORD'],
+    # 'HOST': 'testapp.cluster-clrhzo2xv4nf.us-east-1.rds.amazonaws.com',
+    'HOST': os.environ['RDS_HOSTNAME'],
+    # 'PORT': 3306,
+    'PORT': os.environ['RDS_PORT']
   }
 }
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
-SECURE_HSTS_SECONDS = 3600 # TODO: test this
+SECURE_HSTS_SECONDS = 3600
 
+# LOG_FILENAME = os.path.join(LOG_PATH, 'app.log')
 # LOGGING = {
 #   'version': 1,
 #   'disable_existing_loggers': False,
@@ -51,7 +58,7 @@ SECURE_HSTS_SECONDS = 3600 # TODO: test this
 #     'file': {
 #       'level': 'WARNING',
 #       'class': 'logging.FileHandler',
-#       'filename': '/var/log/testapp.log'
+#       'filename': LOG_FILENAME,
 #     },
 #     'mail_admins': {
 #       'level': 'ERROR',
@@ -70,3 +77,6 @@ SECURE_HSTS_SECONDS = 3600 # TODO: test this
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# INSTANCE_PRIVATE_IP = get_instance_ip()
+# ALLOWED_HOSTS.append(INSTANCE_PRIVATE_IP)
