@@ -324,7 +324,6 @@ https://github.com/ThoughtWorksStudios/eb_deployer/wiki/Elastic-Beanstalk-Tips-a
 
 
 Prueba - Logs personalizados de django    FAIL!
-Prueba - Comentarios en archivos .config
 Prueba - Cambio del health checker de instancia a balanceador de carga
 Prueba - Resolver problema de health checker agregando ip de instancia
 
