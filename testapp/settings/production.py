@@ -73,5 +73,5 @@ SECURE_HSTS_SECONDS = 3600
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-# INSTANCE_PRIVATE_IP = get_instance_ip()
-# ALLOWED_HOSTS.append(INSTANCE_PRIVATE_IP)
+INSTANCE_PRIVATE_IP = get_instance_ip()
+ALLOWED_HOSTS.append(INSTANCE_PRIVATE_IP)

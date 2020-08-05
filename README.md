@@ -331,6 +331,5 @@ https://github.com/ThoughtWorksStudios/eb_deployer/wiki/Elastic-Beanstalk-Tips-a
 
 
 Prueba - Logs personalizados de django    FAIL!
-Prueba - Resolver problema de health checker agregando ip de instancia
 
 Documentar dominio y ssl
