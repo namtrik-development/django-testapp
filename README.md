@@ -165,6 +165,11 @@ proyecto de AWSEB.
 
 ## Otras consideraciones
 
+* Las variables de entorno definidas en los archivos de configuración 
+([`.ebextensions/django.config`](.ebextensions/django.config)) no están disponibles a través de SSH, 
+AWSEB crea un usuario del sistema operativo con permisos especiales y protegido por contraseña para 
+quién estarán disponibles las variables.
+
 * Si requiere usar una base de datos con su entorno, es muy recomendable crear la base de datos 
 independiente del entorno, por que AWSEB eliminará las bases de datos cuando termine el entorno.
 
@@ -278,11 +283,11 @@ option_settings:
     value: testapp-sg
 ```
 
-<--TODO--> Test it
-
 Una vez creada la base de datos, agregue al Security Group creado por la base de datos una nueva 
 regla de entrada con el puerto de la base de datos y la fuente el id del Security Group creado por 
 AWSEB para el entorno.
+
+![Security group de Aurora](.doc/images/aurora_security_group.png "Security group de Aurora")
 
 ## Configurar dominio y HTTPS
 
@@ -319,4 +324,11 @@ private ec2 instances
 despliegues B/G (stagging, prodution)
 https://github.com/ThoughtWorksStudios/eb_deployer/wiki/Elastic-Beanstalk-Tips-and-Tricks#set-inactive_settings-for-saving-cost-on-blue-green-deployment
 
-ww
+
+
+Prueba - Logs personalizados de django
+Prueba - Cambio del health checker de instancia a balanceador de carga
+Prueba - Comentarios en archivos .config
+Prueba - Resolver problema de health checker agregando ip de instancia
+
+Documentar dominio y ssl
