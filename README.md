@@ -302,6 +302,43 @@ AWSEB para el entorno.
 
 ## Configurar dominio y HTTPS
 
+AWSEB crea el entorno con un dominio de AWS del estilo env-name.xxx.region.elasticbeanstalk.com, 
+puede hacer que los usuarios accedan a la aplicación a través de un dominio canónico, por ejemplo 
+miapp.com, para esto puede adquirir un dominio a través del servicio `Route 53` de AWS o puede usar 
+un dominio externo manejado por otra empresa, como por ejemplo Google, GoDaddy, etc.
+
+En esta prueba se muestra como configurar un dominio externo manejado por un tercero, en este caso 
+Google. Para configurar que el tráfico del dominio pase al entorno de AWSEB, entre al panel de 
+administración del dominio, en la configuración de DNS agregue un nuevo registro de tipo `CNAME` con 
+el subdominio que desea usar y como valor el dominio dado por AWSEB.
+
+![Configuración de DNS](.doc/images/dns_cname.png "Configuración de DNS")
+
+En este ejemplo, se usa el subdominio `testapp.namtrik.dev`. Recuerde que si quiere configurar el 
+dominio canónico debe usar `@` cómo clave del registro, con esto los usuarios podrán acceder desde 
+`namtrik.dev`; de la misma forma puede configurar el subdominio `www` para habilitar 
+`www.namtrik.dev`.
+
+Por último, para habilitar el el protocolo `HTTPS` en la aplicación, es necesario disponer de un 
+certificado `SSL`. En este caso, puede solicitar un certificado gratuito a AWS para ser usado en el 
+entorno de AWSEB. Para solicitar el certificado siga los siguientes pasos:
+
+1. Acceda al servicio de `Certificate Manager` a través de la consola de AWS.
+2. Haga clic en el botón `Solicitar un certificado`
+  !(Solicitar certificado)[.doc/images/ssl_cert_1.png "Solicitar certificado"]
+3. Seleccione la opción `Solicitar un certificado público`.
+4. Agregue todos los dominios o subdominios que cobijará el certificado, y haga clic en siguiente
+  !(Agregue los dominios o subdominios)[.doc/images/ssl_cert_2.png "Agregue los dominios o subdominios"]
+5. Se recomienda usar la `Validación de DNS` para que AWS verifique la propiedad del dominio.
+6. Puede agreguar las etiquetas que requiera, por ejemplo, el tipo de entorno (desarrollo, 
+producción, etc.)
+7. Confirme la información y solicite el certificado.
+8. AWS le solicitará que agregue unos registros de tipo `CNAME` en el DNS del dominio, agréguelos 
+como en la configuración de dominio de arriba.
+  ![Confirmación de dominios](.doc/images/ssl_cert_3.png "Confirmación de dominios")
+9. Una vez agregados los registros al DNS del dominio, AWS expedirá el certificado digital y estará 
+listo para configurarlo en AWSEB.
+  ![Certificado emitido](.doc/images/ssl_cert_4.png "Certificado emitido")
 
 ## Obtener credenciales de AWS
 
