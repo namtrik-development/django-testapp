@@ -253,9 +253,13 @@ que debe definir en sus archivos de configuración:
 * Si requiere revisar el log de gunicorn o el journal del proceso de gunicorn, el demonio es llamado 
 `web`.
 
- ```shell
- journalctl -u web --since today
- ```
+  ```shell
+  journalctl -u web --since today
+  ```
+
+* Si el entorno muestra un estado `Grave` aún cuando la aplicación se ejecuta bien, asegúrese que la 
+ruta a la que apunta el `Health Checker` responde con códgo 200; si apunta a la ruta del API puede 
+dar errores.
 
 ## Eliminar aplicación de AWSEB
 
