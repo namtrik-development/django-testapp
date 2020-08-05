@@ -40,35 +40,35 @@ SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_SECONDS = 3600
 
-LOG_FILENAME = os.path.join(LOG_PATH, 'app.log')
-LOGGING = {
-  'version': 1,
-  'disable_existing_loggers': False,
-  'formatters': {
-    'file': {
-      'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
-    }
-  },
-  'handlers': {
-    'file': {
-      'level': 'WARNING',
-      'class': 'logging.FileHandler',
-      'filename': LOG_FILENAME,
-    },
-    'mail_admins': {
-      'level': 'ERROR',
-      'class': 'django.utils.log.AdminEmailHandler',
-      'include_html': True,
-    }
-  },
-  'loggers': {
-    'django': {
-      'handlers': ['file', 'mail_admins'],
-      'level': 'DEBUG',
-      'propagate': True,
-    }
-  },
-}
+# LOG_FILENAME = os.path.join(LOG_PATH, 'app.log')
+# LOGGING = {
+#   'version': 1,
+#   'disable_existing_loggers': False,
+#   'formatters': {
+#     'file': {
+#       'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+#     }
+#   },
+#   'handlers': {
+#     'file': {
+#       'level': 'WARNING',
+#       'class': 'logging.FileHandler',
+#       'filename': LOG_FILENAME,
+#     },
+#     'mail_admins': {
+#       'level': 'ERROR',
+#       'class': 'django.utils.log.AdminEmailHandler',
+#       'include_html': True,
+#     }
+#   },
+#   'loggers': {
+#     'django': {
+#       'handlers': ['file', 'mail_admins'],
+#       'level': 'DEBUG',
+#       'propagate': True,
+#     }
+#   },
+# }
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')

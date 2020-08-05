@@ -310,9 +310,6 @@ haga clic en el botón `Crear una clave de acceso`
 
 
 # TODO
-probar variables de entorno, conección a bd
-https://aws.amazon.com/es/premiumsupport/knowledge-center/elastic-beanstalk-pass-variables/
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-softwaresettings.html#environments-cfg-softwaresettings-accessing
 
 gzip nginx
 
@@ -326,9 +323,9 @@ https://github.com/ThoughtWorksStudios/eb_deployer/wiki/Elastic-Beanstalk-Tips-a
 
 
 
-Prueba - Logs personalizados de django
-Prueba - Cambio del health checker de instancia a balanceador de carga
+Prueba - Logs personalizados de django    FAIL!
 Prueba - Comentarios en archivos .config
+Prueba - Cambio del health checker de instancia a balanceador de carga
 Prueba - Resolver problema de health checker agregando ip de instancia
 
 Documentar dominio y ssl
