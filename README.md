@@ -250,6 +250,13 @@ que debe definir en sus archivos de configuración:
       command: chown root:wsgi /opt/python/log
   ```
 
+* Si requiere revisar el log de gunicorn o el journal del proceso de gunicorn, el demonio es llamado 
+`web`.
+
+ ```shell
+ journalctl -u web --since today
+ ```
+
 ## Eliminar aplicación de AWSEB
 
 Primero deberá terminar el entorno de ejecución con el siguiente comando:
