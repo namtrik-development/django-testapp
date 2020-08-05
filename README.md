@@ -325,10 +325,10 @@ entorno de AWSEB. Para solicitar el certificado siga los siguientes pasos:
 
 1. Acceda al servicio de `Certificate Manager` a través de la consola de AWS.
 2. Haga clic en el botón `Solicitar un certificado`
-  !(Solicitar certificado)[.doc/images/ssl_cert_1.png "Solicitar certificado"]
+  ![Solicitar certificado](.doc/images/ssl_cert_1.png "Solicitar certificado")
 3. Seleccione la opción `Solicitar un certificado público`.
 4. Agregue todos los dominios o subdominios que cobijará el certificado, y haga clic en siguiente
-  !(Agregue los dominios o subdominios)[.doc/images/ssl_cert_2.png "Agregue los dominios o subdominios"]
+  ![Agregue los dominios o subdominios](.doc/images/ssl_cert_2.png "Agregue los dominios o subdominios")
 5. Se recomienda usar la `Validación de DNS` para que AWS verifique la propiedad del dominio.
 6. Puede agreguar las etiquetas que requiera, por ejemplo, el tipo de entorno (desarrollo, 
 producción, etc.)
